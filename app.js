@@ -14,7 +14,6 @@ var app = express();
 // Set up mongoose connection
 const mongoose = require('mongoose');
 const mongoDB = process.env.MONGODB_URI;
-console.log(mongoDB);
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
@@ -31,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/categories', categoryRouter);
+app.use('/category', categoryRouter);
 app.use('/products', productRouter);
 
 // catch 404 and forward to error handler

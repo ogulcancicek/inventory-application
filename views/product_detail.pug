@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+    h3= product.name
+    img(src=product.img_url)
+    p Description: #{product.description}
+    p Price: #{product.price}$
+    p Quantity: #{product.quantity}
+
+    p Category: 
+        a(href=category.url)= category.name

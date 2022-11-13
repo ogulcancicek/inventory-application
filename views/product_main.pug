@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    h1= title 
+    ul 
+        each product in products 
+            li 
+                div 
+                    a(href=product.url)= product.name 
+                    img(src=product.img_url) 
+                    p Price: #{product.price}$
+                    p Quantity: #{product.quantity}

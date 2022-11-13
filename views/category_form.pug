@@ -1,0 +1,8 @@
+extends layout 
+
+block content 
+    h1= title 
+    form(action="", method="post") 
+        label(for="name") Name: 
+        input(type="text", name="name", id="name", value=(undefined === category ? '' : category.name))
+        input(type="submit", value="Submit")
