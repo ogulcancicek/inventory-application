@@ -9,3 +9,11 @@ block content
 
     p Category: 
         a(href=category.url)= category.name
+
+    div(style='margin-top:20px;margin-left:20px').option-menu
+        p(style='margin-top:20px;')
+            a(href='/products/delete/'+product._id) Delete this product
+        p(style='margin-top:10px;')
+            a(href='/products/update/'+product._id) Update this product
+        p(style='margin-top:10px;')
+            a(href='/products') -> Go back products page

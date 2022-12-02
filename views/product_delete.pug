@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h1= product.name 
+
+    h4 Are you sure you want to delete this product?
+    
+    form.post(action="", method="post")
+        div.form-group
+            input#productid.form-control(type='hidden', name='productid', value=product._id, required=true)
+        button.btn.btn-primary(type="submit") Delete
+
+    div(style='margin-top:20px;margin-left:20px').option-menu
+        p(style='margin-top:20px;')
+            a(href='/products/'+product._id) -> Go back product page

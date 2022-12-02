@@ -1,0 +1,45 @@
+extends layout 
+
+block content 
+    h1= title 
+    form(action="", method="post") 
+        div.form-group
+            label(for="name") Name: 
+            input(type="text", name="name", id="name", value=(undefined === product ? '' : product.name))
+
+        div.form-group
+            label(for="description") Description:
+            input(type="text", name="description", id="description", value=(undefined === product ? '' : product.description))
+
+        div.form-group
+            label(for="imgUrl") Img Url:
+            input(type="text", name="imgUrl", id="imgUrl", value=(undefined === product ? '' : product.img_url))
+
+        div.form-group
+            label(for="quantity") Quantity:
+            input(type="number", name="quantity", id="quantity", value=(undefined === product ? 0 : product.quantity))
+
+        div.form-group
+            label(for="price") Price:
+            input(type="text", name="price", id="price", value=(undefined === product ? 0 : product.price))
+
+        div.form-group
+            label(for="category") Category:
+            select#category.form-control(type="select" placeholder='Select Category' name='category' required='true')
+                - category_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for category in category_list 
+                    if product 
+                        option(
+                            value=category._id
+                            selected=(
+                                category._id.toString()==product.category._id
+                                || category._id.toString()==product.category
+                            ) ? 'selected' : false
+                        ) #{category.name}
+                    else 
+                        option(value=category._id) #{category.name}
+        input(type="submit", value="Submit")
+
+    div(style='margin-top:20px;margin-left:20px').option-menu
+        p(style='margin-top:20px;')
+            a(href='/products/'+product._id) -> Go back product page
