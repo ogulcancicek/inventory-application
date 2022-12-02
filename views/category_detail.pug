@@ -11,3 +11,11 @@ block content
                     p= product.price + '$'
         else 
             li No products found
+
+    div(style='margin-top:20px;margin-left:20px').option-menu
+        p(style='margin-top:20px;')
+            a(href='/category/delete/'+category._id) Delete this category
+        p(style='margin-top:10px;')
+            a(href='/category/update/'+category._id) Update this category
+        p(style='margin-top:10px;')
+            a(href='/category') -> Go back category page

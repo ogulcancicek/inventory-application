@@ -21,3 +21,7 @@ block content
                 input#categoryid.form-control(type='hidden', name='categoryid', value=category._id, required=true)
 
             button.btn.btn-primary(type='submit') Delete
+    
+    div(style='margin-top:20px;margin-left:20px').option-menu
+        p(style='margin-top:20px;')
+            a(href='/category/'+category._id) -> Go back category page

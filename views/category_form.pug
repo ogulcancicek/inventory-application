@@ -6,3 +6,7 @@ block content
         label(for="name") Name: 
         input(type="text", name="name", id="name", value=(undefined === category ? '' : category.name))
         input(type="submit", value="Submit")
+
+    div(style='margin-top:20px;margin-left:20px').option-menu
+        p(style='margin-top:20px;')
+            a(href='/category/'+category._id) -> Go back category page
